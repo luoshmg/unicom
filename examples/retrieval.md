@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 torch.manual_seed(2048)
 model, preprocess = unicom.load("ViT-L/14@336px")
 model = model.cuda()
+model.eval()
 testset = DTD("~/.cache", download=True, split="test", transform=preprocess)
 testset_wo_transform = DTD("~/.cache", download=True, split="test", transform=None)
 
